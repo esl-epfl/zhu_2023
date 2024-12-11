@@ -1,0 +1,30 @@
+[project]
+name = "zhu"
+version = "0.1.0"
+description = "SzCORE compatible reproduction of Zhu et al., 'Automated Seizure Detection using Transformer Models on Multi-Channel EEGs'"
+authors = [
+    { name = "Clément Weihao Samanos", email = "clement.samanos@epfl.ch" },
+    { name = "Jonathan Dan", email = "jonathan.dan@epfl.ch" }
+]
+dependencies = [
+    "numpy>=1.25",
+    "scipy>=1.14.1",
+    "torch>=2.4",
+    "epilepsy2bids>=0.0.6",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zhu"]
