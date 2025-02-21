@@ -18,7 +18,7 @@ def main(edf_file, outFile):
 
     best_thresh = load_thresh()
 
-    model = load_model(window_size_sec, fs)
+    model = load_model(window_size_sec, fs, device)
     model.to(device)
 
     recording_duration = int(eeg.data.shape[1] / eeg.fs)

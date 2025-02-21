@@ -5,8 +5,8 @@ import os
 from scipy.signal import butter, lfilter, iirnotch, filtfilt
 from zhu.architecture import EEGTransformerNet
 
-def load_model(window_size_sec, fs):
-    model = EEGTransformerNet(nb_classes=2, sequence_length=int(window_size_sec*fs), eeg_chans=19)
+def load_model(window_size_sec, fs, device):
+    model = EEGTransformerNet(nb_classes=2, sequence_length=int(window_size_sec*fs), eeg_chans=19, device=device)
     dir_path = os.path.dirname(os.path.realpath(__file__))
     model.load_state_dict(torch.load(os.path.join(dir_path, 'model.pth'), weights_only=True))
     return model
